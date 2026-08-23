@@ -180,25 +180,77 @@ Title the PHP file as FirstProgram.php. Examples:
 
 ### Module Two: PHP Introduction
 
-> **Note:** The source content for Module 2 (Module 2.epub) was not present in the Blackboard download folder at the time this README was generated. Course Introduction, Module 1, and Modules 3–11 all downloaded successfully, but Module 2 did not. Once you download Module 2.epub from Blackboard, this section should be filled in verbatim from that file, matching the format used for the other modules.
-
-Per the syllabus (Course Syllabus Part II, Course Schedule), Module 2 covers **PHP Introduction** and is due in Week 2.
+In the last module, we installed and configured Apache (XAMPP) web server to work with PHP. In this module, we will be introduced to basic syntax rules of the PHP language and how to test our code.
 
 #### Deliverables
 
-*(pending Module 2 source content)*
+1. Review Module Resources.
+1. Module 2 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+1. Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+1. Module 2 Programming Assignment (Table2.php) - Due by Sunday 11:59 p.m., CST.
 
 #### Resources
 
-*(pending Module 2 source content)*
+**Please watch all required videos and review the examples for this Module located in the Module 2 Resources Folder:**
+
+- Read Chapter 2 in Programming PHP, Creating Dynamic Web Pages.
+- Read the PHP Tutorial at [w3schools.com](https://www.w3schools.com/php/) to include Data Types, Numbers, Math, Constants, Operators, If…Else…Elseif, Switch, and Loops.
+- PHP Introduction Video 1
+- PHP Video 1 Examples
+- PHP Introduction Video 2
+- PHP Video 2 Examples
+  - Examples_02.zip
 
 #### Discussion Board
 
-*(pending Module 2 source content)*
+##### Discussion Question
+
+Search the Internet for a helpful PHP website, excluding W3Schools, and post a link along with a detailed description as to why you found it helpful.
+
+**'What', 'How', and 'Why'**
+
+- **What:** What are you writing about? Give the audience a brief overview of the topic by providing them with foundational information (history, background information, etc.).
+- **How:** How is the information relevant? Apply personal knowledge (this can be through research or actual practiced knowledge) to build trust with the audience.
+- **Why:** Justify your position and/or course of action. The audience needs proof that the information you are presenting is creditable and actionable.
+
+**Assignment Requirements and Grading:**
+
+1. An initial post is due by **Thursday, 11:59 p.m. CST.**
+1. For the initial post to be considered substantive, it should be at least 250 words in length and fully cover the topics being presented. Single sentence definitions or responses will not be awarded points.
+1. The Discussion Board for the Module can be found in the Contents list in the upper left of this window.
+1. You must submit a post in order to view your peers' posts. Tip: Create your post in a Word document and then copy and paste your work into the thread.
+1. A minimum of three (3) responses, to the original threads of other students, of 100-200 words each are due by **Sunday, 11:59 p.m. CST.**
+1. Review the Grading Rubric for further help.
+
+**(25 points)**
 
 #### Assignments
 
-*(pending Module 2 source content — Module 3's assignment references "the PHP table created in Module 2," so Module 2's assignment involves building a PHP table.)*
+##### Assignment: Table
+
+**Follow the directions below:**
+
+- Write a program that creates an HTML table using a PHP nested loop structure. In the loop structure, you are to display a two-dimensional table holding PHP-generated random numbers in each cell. Do not use PHP to display the actual table tags. This will require several opening and closing PHP tags such as `<?php ?>`.
+- Title the PHP file as \<YourFirstName\>Table2.php. Examples:
+  - JohnTable2.php
+  - SueTable2.php
+  - LarryTable2.php
+  - Etc.
+- Ensure you include standard HTML tags.
+- Review the code documentation requirements and ensure you meet them in your code.
+- Thoroughly test your code to verify it functions correctly and displays the correct output.
+
+**Assignment Requirements and Grading:**
+
+- This assignment is due by **Sunday, 11:59 p.m., CST.**
+- Add the necessary documentation as described in the [following instructions](/Course-Info/Documentation_Requirements.pdf).
+- Capture screenshots, combined in a single Word document, demonstrating you have correctly installed and configured Java and JavaFX. Include your name, date, and assignment number.
+- Submit your assignment by clicking in the Module Assignment, then use the Attach Files icon from the toolbar (the paperclip). Select your assignment file, add the URL to your GitHub repository in the comments area, and then click on Submit.
+  - \<your_last_name\>-\<module_number\>\<course\>.zip.
+  - Example: darrell_mod_2_csd440.zip.
+- Click on the following for instructions: GitHub_Stage_Commit_and_Push.pdf. Review the Grading Rubric for further guidance.
+
+**(50 points)**
 
 #### Summary
 
