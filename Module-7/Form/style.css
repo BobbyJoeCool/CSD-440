@@ -1,0 +1,305 @@
+/*
+  Name: Robert Breutzmann
+  Date: 09/07/2026
+  Assignment: Module 7 - Form (BobForm.php)
+  Purpose: Shared styling for the Adventurer's Guild party application.
+           Both the form page and the response page link to this file so
+           the two halves of the assignment look like pages torn from
+           the same guild ledger: aged parchment, a wood and gold frame,
+           and the same pair of fonts throughout.
+*/
+
+/* One place to change every color used on both pages. */
+:root {
+  --parchment: #ecdcb0;
+  --parchment-dark: #ddc491;
+  --parchment-shadow: #c9ad78;
+  --ink: #2c1a0e;
+  --wood: #3b2418;
+  --wood-dark: #241209;
+  --gold: #b8860b;
+  --gold-light: #d4af37;
+  --blood: #6b1414;
+  --moss: #2e5d2e;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: var(--ink);
+  background: radial-gradient(ellipse at center, #4a3220 0%, #1c1108 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* The parchment sheet the whole page sits on, framed in wood and gold. */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--parchment);
+  border: 6px double var(--gold);
+  outline: 2px solid var(--wood-dark);
+  outline-offset: -14px;
+  border-radius: 4px;
+  padding: 40px 50px;
+  box-shadow: 0 0 0 4px var(--wood-dark), 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  text-align: center;
+  color: var(--blood);
+  text-shadow: 1px 1px 0 var(--gold-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--wood);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+  margin-top: 40px;
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* The short bit of flavor text under each page's title. */
+.scroll-intro {
+  text-align: center;
+  font-style: italic;
+  color: var(--wood);
+  margin: 0 0 30px;
+}
+
+/* Each group of related questions on the application. */
+fieldset {
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  background: var(--parchment-dark);
+  padding: 10px 24px 20px;
+  margin: 0 0 26px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+legend {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  color: var(--blood);
+  letter-spacing: 1px;
+  padding: 0 10px;
+}
+
+/* One question: its label, its control, and the hint underneath. */
+.field {
+  margin: 16px 0;
+}
+
+.field label {
+  display: block;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--wood);
+  margin-bottom: 6px;
+}
+
+/* The radio buttons and check boxes are laid out three to a row. For
+   the alignments that comes out as the three-by-three grid every
+   player already knows from the alignment chart. */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+/* Keeps a button and its label together on one line so a long
+   alignment name never wraps away from the button it belongs to. */
+.choice {
+  white-space: nowrap;
+}
+
+/* Labels sitting beside a radio button or check box read as normal
+   text instead of as a heading over the control. */
+.choice label {
+  display: inline;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1em;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1em;
+  color: var(--ink);
+  background: var(--parchment);
+  border: 1px solid var(--parchment-shadow);
+  border-bottom: 2px solid var(--wood);
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+/* A gold glow marks whichever field the applicant is filling in. */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 6px rgba(184, 134, 11, 0.6);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hint {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--wood);
+  margin-top: 4px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* The submit button, cut from the same wood as the page frame. */
+input[type="submit"] {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: var(--wood);
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  padding: 12px 34px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+input[type="submit"]:hover {
+  background: var(--wood-dark);
+  color: #f0dca0;
+}
+
+/* The table of accepted answers on the response page. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+tbody th {
+  width: 34%;
+  text-align: left;
+  background: var(--wood);
+  color: var(--gold-light);
+  font-family: "Cinzel", Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  padding: 12px 10px;
+  border: 1px solid var(--wood-dark);
+}
+
+tbody td {
+  padding: 10px;
+  border: 1px solid var(--parchment-shadow);
+}
+
+tbody tr:nth-child(odd) td {
+  background: var(--parchment);
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--parchment-dark);
+}
+
+/* The green wax seal stamped on an application that passed every check. */
+.verdict-accepted {
+  background: var(--parchment-dark);
+  border: 2px solid var(--moss);
+  border-left: 8px solid var(--moss);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin-bottom: 10px;
+}
+
+.verdict-accepted h2 {
+  color: var(--moss);
+  border-bottom: 1px dashed var(--moss);
+  margin-top: 0;
+}
+
+/* The red wax seal stamped on an application that was sent back. */
+.verdict-rejected {
+  background: var(--parchment-dark);
+  border: 2px solid var(--blood);
+  border-left: 8px solid var(--blood);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin-bottom: 10px;
+}
+
+.verdict-rejected h2 {
+  color: var(--blood);
+  border-bottom: 1px dashed var(--blood);
+  margin-top: 0;
+}
+
+.error-list {
+  margin: 10px 0 0;
+  padding-left: 24px;
+}
+
+.error-list li {
+  line-height: 1.6;
+  color: var(--blood);
+}
+
+/* The link back to the application form. */
+.back-link {
+  display: inline-block;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: var(--wood);
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  padding: 10px 26px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.back-link:hover {
+  background: var(--wood-dark);
+  color: #f0dca0;
+}
