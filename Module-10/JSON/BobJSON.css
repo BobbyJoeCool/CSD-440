@@ -1,0 +1,416 @@
+/*
+  Name: Robert Breutzmann
+  Date: 09/28/2026
+  Assignment: Module 10.2 - JSON (BobJSON.css)
+  Purpose: Shared styling for the character sheet form and the JSON
+           export page. Carried forward from the Module 7 guild ledger
+           (aged parchment in a wood and gold frame) and extended with
+           the side-by-side field layout, the ability score boxes, and
+           a dark code editor panel that color codes the JSON output.
+*/
+
+/* One place to change every color used on both pages. */
+:root {
+  --parchment: #ecdcb0;
+  --parchment-dark: #ddc491;
+  --parchment-shadow: #c9ad78;
+  --ink: #2c1a0e;
+  --wood: #3b2418;
+  --wood-dark: #241209;
+  --gold: #b8860b;
+  --gold-light: #d4af37;
+  --blood: #6b1414;
+  --moss: #2e5d2e;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: var(--ink);
+  background: radial-gradient(ellipse at center, #4a3220 0%, #1c1108 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* The parchment sheet the whole page sits on, framed in wood and gold. */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--parchment);
+  border: 6px double var(--gold);
+  outline: 2px solid var(--wood-dark);
+  outline-offset: -14px;
+  border-radius: 4px;
+  padding: 40px 50px;
+  box-shadow: 0 0 0 4px var(--wood-dark), 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  text-align: center;
+  color: var(--blood);
+  text-shadow: 1px 1px 0 var(--gold-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--wood);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+  margin-top: 40px;
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* The short bit of flavor text under each page's title. */
+.scroll-intro {
+  text-align: center;
+  font-style: italic;
+  color: var(--wood);
+  margin: 0 0 30px;
+}
+
+/* Each group of related questions on the character sheet. */
+fieldset {
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  background: var(--parchment-dark);
+  padding: 10px 24px 20px;
+  margin: 0 0 26px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+legend {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  color: var(--blood);
+  letter-spacing: 1px;
+  padding: 0 10px;
+}
+
+/* One question: its label, its control, and the hint underneath. */
+.field {
+  margin: 16px 0;
+}
+
+.field label {
+  display: block;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--wood);
+  margin-bottom: 6px;
+}
+
+/* The radio buttons and check boxes are laid out three to a row. For
+   the alignments that comes out as the three-by-three grid every
+   player already knows from the alignment chart. */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+/* Keeps a button and its label together on one line so a long
+   alignment name never wraps away from the button it belongs to. */
+.choice {
+  white-space: nowrap;
+}
+
+/* Labels sitting beside a radio button or check box read as normal
+   text instead of as a heading over the control. */
+.choice label {
+  display: inline;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1em;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1em;
+  color: var(--ink);
+  background: var(--parchment);
+  border: 1px solid var(--parchment-shadow);
+  border-bottom: 2px solid var(--wood);
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+/* A gold glow marks whichever field the player is filling in. */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 6px rgba(184, 134, 11, 0.6);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hint {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--wood);
+  margin-top: 4px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* The submit button, cut from the same wood as the page frame. */
+input[type="submit"] {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: var(--wood);
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  padding: 12px 34px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+input[type="submit"]:hover {
+  background: var(--wood-dark);
+  color: #f0dca0;
+}
+
+/* The green wax seal stamped on a sheet that exported cleanly. */
+.verdict-accepted {
+  background: var(--parchment-dark);
+  border: 2px solid var(--moss);
+  border-left: 8px solid var(--moss);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin-bottom: 10px;
+}
+
+.verdict-accepted h2 {
+  color: var(--moss);
+  border-bottom: 1px dashed var(--moss);
+  margin-top: 0;
+}
+
+/* The red wax seal stamped on a sheet that was sent back. */
+.verdict-rejected {
+  background: var(--parchment-dark);
+  border: 2px solid var(--blood);
+  border-left: 8px solid var(--blood);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin-bottom: 10px;
+}
+
+.verdict-rejected h2 {
+  color: var(--blood);
+  border-bottom: 1px dashed var(--blood);
+  margin-top: 0;
+}
+
+.error-list {
+  margin: 10px 0 0;
+  padding-left: 24px;
+}
+
+.error-list li {
+  line-height: 1.6;
+  color: var(--blood);
+}
+
+/* The link back to the form, also used for the download button. */
+.back-link {
+  display: inline-block;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: var(--wood);
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  padding: 10px 26px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.back-link:hover {
+  background: var(--wood-dark);
+  color: #f0dca0;
+}
+
+/* Two short questions side by side, such as species and class. */
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+/* The six ability scores laid out like the boxes down the side of a
+   paper character sheet. */
+.ability-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin: 8px 0 4px;
+}
+
+.ability-box {
+  text-align: center;
+  background: var(--parchment);
+  border: 2px solid var(--wood);
+  border-radius: 8px;
+  padding: 8px 6px 6px;
+}
+
+.ability-box label {
+  display: block;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  color: var(--blood);
+  letter-spacing: 1px;
+}
+
+.ability-box input[type="number"] {
+  text-align: center;
+  font-size: 1.3em;
+  padding: 4px;
+  margin: 4px 0;
+}
+
+.ability-name {
+  display: block;
+  font-size: 0.7em;
+  font-style: italic;
+  color: var(--wood);
+}
+
+/* The JSON output, shown in a dark panel made to look like a code
+   editor window so it stands apart from the parchment around it. */
+.json-window {
+  margin: 20px 0 16px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.json-titlebar {
+  display: flex;
+  justify-content: space-between;
+  background: var(--wood);
+  color: var(--gold-light);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+}
+
+.json-view,
+.json-compact {
+  margin: 0;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  background: #1e1a16;
+  color: #d8cfc0;
+}
+
+/* Long values such as the backstory wrap inside the panel rather
+   than running off its right edge. */
+.json-view {
+  padding: 16px 20px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* The compact form is one long line, so it wraps instead of scrolling. */
+.json-compact {
+  padding: 12px 16px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 13px;
+}
+
+/* One color for each kind of JSON value, set by highlightJson(). */
+.json-key {
+  color: #e6b450;
+}
+
+.json-string {
+  color: #9fca78;
+}
+
+.json-number {
+  color: #7fb4e0;
+}
+
+.json-literal {
+  color: #d58ad0;
+}
+
+.json-actions {
+  text-align: right;
+}
+
+.check-passed {
+  color: var(--moss);
+  border-left: 6px solid var(--moss);
+  padding-left: 12px;
+}
+
+.check-failed {
+  color: var(--blood);
+  border-left: 6px solid var(--blood);
+  padding-left: 12px;
+}
+
+/* On a narrow screen the side-by-side fields stack, and the ability
+   boxes fall to three per row. */
+@media (max-width: 640px) {
+
+  .container {
+    padding: 24px 20px;
+  }
+
+  .field-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .ability-grid,
+  .choice-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

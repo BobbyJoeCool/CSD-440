@@ -15,6 +15,18 @@ database is ready, so nothing has to be run in a particular order by hand. The
 first time through, follow its first two links in order (Bind the Tome, then Ink
 the Spells), because the search and form pages need a table with rows in it.
 
+## Setup: use a separate folder from Module 8
+
+Copy these files into their own folder. Don't put them in the same folder as the
+Module 8 submission. Module 8 also has a `spellsConfig.php` and a `style.css`, but
+they are older versions. If the Module 9 pages load the Module 8 copies, they fail:
+`BobIndex.php` stops with a fatal error because `printStatusLine()` is undefined,
+and `BobQuery.php` stops partway through drawing its form. The reverse fails as
+well: the Module 8 pages define their own copies of helpers that the Module 9
+`spellsConfig.php` also defines, so they cannot run with it. If both modules must
+share one folder, copy all eight Module 9 files in together. This replaces the
+three Module 8 pages with their Module 9 versions.
+
 | File | What it does |
 |------|--------------|
 | **`BobIndex.php`** | **Start here.** Links to all five pages and reports the live state of the database: connected or not, table built or not, and how many spells it holds. |
