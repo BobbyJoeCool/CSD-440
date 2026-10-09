@@ -1,5 +1,32 @@
 # CSD 440: Server-Side Scripting
 
+> **Opening a page locally:** run `phpopen <file.php>` from the terminal to open any PHP file in this repo in the browser through XAMPP.
+>
+> ```zsh
+> cd Module-10/JSON
+> phpopen BobJSONForm.php        # opens http://localhost/CSD-440/Module-10/JSON/BobJSONForm.php
+> ```
+>
+> `htdocs/CSD-440` is a symlink to this repo, so the URL mirrors the file's path. Opening a `.php` file directly (file://, VS Code preview, Live Server) skips the PHP and shows a blank or partial page. The function lives in `~/.zshrc`:
+>
+> ```zsh
+> phpopen() {
+>   local root="/Users/Bob/csd/CSD-440"
+>   local file="${1:A}"
+>   if [[ -z "$1" || ! -f "$file" ]]; then
+>     echo "usage: phpopen <file.php>"
+>     return 1
+>   fi
+>   # macOS paths are case-insensitive, so compare lowercased.
+>   if [[ "${(L)file}" != "${(L)root}"/* ]]; then
+>     echo "phpopen: $file is not under $root"
+>     return 1
+>   fi
+>   local rel="${file[$(( ${#root} + 2 )),-1]}"
+>   open "http://localhost/CSD-440/${rel// /%20}"
+> }
+> ```
+
 This course examines the PHP Server-side scripting language. Topics include cookies and sessions, objects and methods, collections, data types, and security coding techniques. In addition, students will be introduced to Linux command line methods to navigate and set variables in a Linux environment.
 
 ## Table of Contents
